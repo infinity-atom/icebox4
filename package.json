@@ -1,0 +1,24 @@
+{
+    "name": "icebox4",
+    "version": "1.0.0",
+    "scripts": {
+        "lint": "eslint .",
+        "format": "prettier --write .",
+        "gendoc": "jsdoc -c jsdoc.json"
+    },
+    "keywords": [],
+    "author": "infinity-atom",
+    "license": "MIT",
+    "description": "Web operating system",
+    "devDependencies": {
+        "@eslint/js": "^9.8.0",
+        "eslint": "^9.8.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "globals": "^15.9.0",
+        "jsdoc": "^4.0.3",
+        "minami": "^1.2.3",
+        "prettier": "^3.3.3",
+        "taffydb": "^2.7.3"
+    }
+}
