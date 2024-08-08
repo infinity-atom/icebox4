@@ -16,7 +16,7 @@ export class Program_GBash extends Program {
             const input = await Stdin.readLine();
             const split_arguments = input.split(" ");
 
-            if (input === "") {
+            if (input === "" || input[0] === "*") {
                 Stdout.write("\n");
                 continue;
             }
