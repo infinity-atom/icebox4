@@ -33,7 +33,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4.0.3
       - name: Build docs and move to src
-        runs: |
+        run: |
           npm run gendoc
           mkdir ./src/docs
           cp -r ./docs ./src/docs
