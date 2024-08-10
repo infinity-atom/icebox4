@@ -8,5 +8,6 @@ export class Program_Clear extends Program {
 
     async main() {
         Stdout.clear();
+        return 0;
     }
 }

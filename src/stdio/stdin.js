@@ -40,4 +40,38 @@ export class Stdin extends IOStream {
                 .addEventListener("keydown", inputHandler);
         });
     }
+
+    /**
+     * @description Reads one character from stdin
+     * @returns {String}
+     */
+    static async readChar() {
+        return new Promise((resolve) => {
+            const inputHandler = (event) => {
+                if (event.key.length === 1) {
+                    event.preventDefault();
+                    document
+                        .querySelector("textarea")
+                        .removeEventListener("keydown", inputHandler);
+                    resolve(event.ctrlKey ? `^${event.key}` : event.key);
+                } else if (event.key === "Enter" || event.key === "Return") {
+                    event.preventDefault();
+                    document
+                        .querySelector("textarea")
+                        .removeEventListener("keydown", inputHandler);
+                    resolve("\n");
+                } else if (event.key === "Backspace") {
+                    event.preventDefault();
+                    document
+                        .querySelector("textarea")
+                        .removeEventListener("keydown", inputHandler);
+                    resolve("backspace");
+                }
+            };
+
+            document
+                .querySelector("textarea")
+                .addEventListener("keydown", inputHandler);
+        });
+    }
 }

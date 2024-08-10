@@ -5,7 +5,7 @@ import { Filesystem } from "../lib/sys/filesystem.js";
 
 export class Program_GBash extends Program {
     constructor() {
-        super("gbash", "gaybash", [1, 0, 0]);
+        super("gbash", "gaybash", [1, 2, 0]);
     }
 
     async main(args) {
@@ -15,10 +15,10 @@ export class Program_GBash extends Program {
             );
         }
 
-        let workingDir = "/home";
+        let workingDir = "/";
 
         while (true) {
-            Stdout.write(`icebox:gbash [${workingDir}] $ `);
+            Stdout.write(`[${workingDir}] $ `);
             const input = await Stdin.readLine();
             const split_arguments = input.split(" ");
 
@@ -103,5 +103,7 @@ export class Program_GBash extends Program {
 
             await new programClass().main(arguments_parsed, workingDir);
         }
+
+        return 0;
     }
 }

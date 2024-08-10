@@ -27,12 +27,11 @@ document.querySelector("textarea").addEventListener("click", () => {
 
 // Main entrypoint for the operating system.
 Stdout.write("icebox4\n\n");
-Stdout.write("[START] Preload terminal bell\n");
-
-new Audio("./bell.mp3");
-Stdout.write("[OK] Preload terminal bell\n");
 Stdout.write("[START] Load gbash");
 
 Stdout.clear();
+
+document.querySelector("textarea").focus();
+
 const gbash_main = new Program_GBash();
 await gbash_main.main({ disableSplash: true });
