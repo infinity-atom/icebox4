@@ -34,6 +34,7 @@ jobs:
         uses: actions/setup-node@v4.0.3
       - name: Build docs and move to src
         run: |
+          npm install
           npm run gendoc
           mkdir ./src/docs
           cp -r ./docs ./src/docs
