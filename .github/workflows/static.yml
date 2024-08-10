@@ -36,8 +36,7 @@ jobs:
         run: |
           npm install
           npm run gendoc
-          mkdir ./src/docs
-          cp -r ./docs ./src/docs
+          cp -r ./docs ./src
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
