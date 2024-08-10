@@ -1,6 +1,6 @@
 const terminal = document.querySelector("textarea");
 const charsize = {
-    x: 6.9,
+    x: 9.6,
     y: 22
 };
 
@@ -14,8 +14,12 @@ export class Terminal {
      * @returns {{ rows: Number, cols: Number }}
      */
     static getTerminalSize() {
-        const rows = Math.floor(terminal.clientHeight / charsize.y);
-        const cols = Math.floor(terminal.clientWidth / charsize.x);
+        const rows = Math.floor(
+            terminal.getBoundingClientRect().height / charsize.y
+        );
+        const cols = Math.floor(
+            terminal.getBoundingClientRect().width / charsize.x
+        );
         return { rows, cols };
     }
 }

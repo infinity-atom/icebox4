@@ -12,17 +12,27 @@ export class Stdout extends IOStream {
      * @param {String} text String to write into stream
      */
     static write(text) {
-        const cleanText = text.replaceAll("\u0007", "");
-        document.querySelector("textarea").value += cleanText;
+        document.querySelector("textarea").value += text;
         document.querySelector("textarea").scrollTop =
             document.querySelector("textarea").scrollHeight;
 
-        // Terminal bell
-        if (text.includes("\u0007")) {
-            new Audio("../bell.wav").play();
-        }
+        this.cursorPos += text.length;
+    }
 
-        this.cursorPos += cleanText.length;
+    /**
+     * @description Moves the cursor an amount of characters relative to the current location
+     * @param {Number} pos The relative position to move it to
+     */
+    static moveCursor(pos) {
+        this.cursorPos += pos;
+        document.querySelector("textarea").selectionStart = this.cursorPos;
+    }
+
+    /**
+     * @description Ring the terminal bell
+     */
+    static ringBell() {
+        new Audio("../bell.mp3").play();
     }
 
     /**

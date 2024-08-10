@@ -17,12 +17,15 @@ export class Stdin extends IOStream {
             const inputHandler = (event) => {
                 if (event.key.length === 1) {
                     line += event.key;
+                    Stdout.moveCursor(1);
                 } else if (event.key === "Backspace") {
                     if (line === "") {
                         event.preventDefault();
-                        Stdout.write("\u0007");
+                        Stdout.ringBell();
+                        return;
                     }
                     line = line.slice(0, -1);
+                    Stdout.moveCursor(-1);
                 } else if (event.key === "Enter" || event.key === "Return") {
                     event.preventDefault();
                     document
