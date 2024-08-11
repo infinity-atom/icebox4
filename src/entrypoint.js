@@ -34,4 +34,4 @@ Stdout.clear();
 document.querySelector("textarea").focus();
 
 const gbash_main = new Program_GBash();
-await gbash_main.main();
+await gbash_main.main([]);
