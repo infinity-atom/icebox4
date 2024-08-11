@@ -1,4 +1,3 @@
-import { Program_GBash } from "./program/gbash.js";
 import { Stdout } from "./stdio/stdout.js";
 
 // Prevent unauthorized cursor movement
@@ -25,9 +24,28 @@ document.querySelector("textarea").addEventListener("click", () => {
     document.querySelector("textarea").selectionStart = Stdout.cursorPos;
 });
 
+document.querySelector("textarea").value = "";
+
+const preloaded_programs = [
+    "clear",
+    "clearfs",
+    "echo",
+    "gbash",
+    "gnano",
+    "ls",
+    "mkdir",
+    "touch"
+];
+
 // Main entrypoint for the operating system.
 Stdout.write("icebox4\n\n");
-Stdout.write("[START] Load gbash");
+
+for (const program of preloaded_programs) {
+    await import(`./program/${program}.js`);
+    Stdout.write(`[OK] Preload program ${program}.js\n`);
+}
+
+const Program_GBash = (await import("./program/gbash.js")).Program_GBash;
 
 Stdout.clear();
 
