@@ -11,7 +11,7 @@ export class Program_GBash extends Program {
     async main(args) {
         if (args.disableSplash !== true) {
             Stdout.write(
-                `${this.friendlyName} (${this.name}) v${this.versionString}\nDocumentation: https://icebox.infinity-atom.org/docs`
+                `${this.friendlyName} (${this.name}) v${this.versionString}\nDocumentation: https://icebox.infinity-atom.org/docs\n`
             );
         }
 
