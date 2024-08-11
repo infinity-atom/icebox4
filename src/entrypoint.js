@@ -34,7 +34,8 @@ const preloaded_programs = [
     "gnano",
     "ls",
     "mkdir",
-    "touch"
+    "touch",
+    "rm"
 ];
 
 // Main entrypoint for the operating system.
